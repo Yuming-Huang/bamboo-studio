@@ -1,0 +1,23 @@
+/* Fixed-width contents slide left while the canvas immediately gets the free space. */
+.studio .workspace{--sidebar-width:340px;position:relative;overflow:hidden}
+.sidebar-toggle{position:absolute;z-index:5;left:calc(var(--sidebar-width) - 22px);top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;min-height:52px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--accent);box-shadow:0 2px 10px #0000000d;transition:left .18s ease,background-color .18s ease,border-color .18s ease}
+.sidebar-toggle:hover{background:var(--soft);border-color:var(--accent)}
+.sidebar-toggle svg{width:20px;height:20px;stroke-width:2;transition:transform .18s ease}
+[data-sidebar="collapsed"] .sidebar-toggle{left:12px}
+[data-sidebar="collapsed"] .sidebar-toggle svg{transform:rotate(180deg)}
+@media(min-width:821px){
+ .studio .workspace{grid-template-columns:var(--sidebar-width) minmax(0,1fr)}
+ .studio .control-panel{width:var(--sidebar-width);transform:translateX(0);visibility:visible;transition:transform .18s ease,visibility 0s,background-color .18s ease,color .18s ease,border-color .18s ease}
+ .studio .viewport{grid-column:2;grid-row:1}
+ [data-sidebar="collapsed"] .studio .workspace{grid-template-columns:0 minmax(0,1fr)}
+ [data-sidebar="collapsed"] .studio .control-panel{transform:translateX(-100%);visibility:hidden;transition:transform .18s ease,visibility 0s .18s}
+}
+@media(min-width:1500px){.studio .workspace{--sidebar-width:360px}}
+@media(max-width:820px){
+ .studio .workspace{overflow:visible}
+ .sidebar-toggle{position:fixed;left:10px;top:calc(var(--header) + 195px)}
+ [data-sidebar="collapsed"] .studio .control-panel{display:none}
+ [data-sidebar="collapsed"] .studio .viewport{height:calc(100dvh - var(--header) - var(--footer));min-height:300px}
+}
+body.capture-mode .sidebar-toggle{display:none}
+@media(prefers-reduced-motion:reduce){.sidebar-toggle,.sidebar-toggle svg,.studio .control-panel{transition:none}}

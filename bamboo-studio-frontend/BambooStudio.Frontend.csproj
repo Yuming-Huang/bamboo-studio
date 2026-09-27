@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms><ImplicitUsings>enable</ImplicitUsings><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems><AssemblyName>BambooStudio</AssemblyName>
+    <Version>0.8.0</Version><ApplicationManifest>desktop/app.manifest</ApplicationManifest>
+    <PublishSingleFile>false</PublishSingleFile><IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <SelfContained>true</SelfContained><RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile><DebugType>none</DebugType><ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3537.50" />
+    <Compile Include="desktop/*.cs;tests/desktop/*.cs"/>
+    <EmbeddedResource Include="ui/index.html" LogicalName="BambooStudio.index.html" />
+    <EmbeddedResource Include="licenses/*.txt" LogicalName="BambooStudio.Licenses.%(Filename)%(Extension)" />
+    <PackageReference Include="Rhino3dm" Version="8.17.0" />
+  </ItemGroup>
+  <Target Name="RemoveUnusedWpf" BeforeTargets="ResolveAssemblyReferences"><ItemGroup><Reference Remove="@(Reference)" Condition="'%(Reference.Filename)' == 'Microsoft.Web.WebView2.Wpf'" /></ItemGroup></Target>
+</Project>

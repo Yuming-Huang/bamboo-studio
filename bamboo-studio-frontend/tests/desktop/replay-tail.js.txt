@@ -1,0 +1,7 @@
+;const response=data=>({ok:true,status:200,json:async()=>data});
+window.fetch=async(path,options={})=>{
+ if(path==='/api/status')return response({connected:true,engineId:'karamba3d',engineVersion:'3.1.51222.0 / recorded visual check'});
+ if(path==='/api/jobs'){const p=JSON.parse(options.body).parameters;const key=o=>JSON.stringify(Object.keys(o).sort().map(k=>[k,o[k]]));if(key(p)!==key(recorded.parameters))throw Error('Recorded parameters mismatch');return response({id:'roof-visual-check'});}
+ if(path==='/api/jobs/roof-visual-check')return response({state:'complete',result:recorded,message:'已有 Karamba3D 结果回放，仅检查屋面显示'});
+ throw Error('Unexpected request in visual check: '+path);
+};})();

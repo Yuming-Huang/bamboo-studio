@@ -1,0 +1,18 @@
+{
+  "name": "bamboo-studio-frontend",
+  "private": true,
+  "version": "0.8.0",
+  "scripts": {
+    "build:ui": "node build-ui.mjs",
+    "test": "node scripts/test.mjs",
+    "prepare:ui-test": "node scripts/prepare-ui-test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.9",
+    "three": "0.180.0"
+  },
+  "description": "Bamboo Studio desktop UI and Rhino model export",
+  "engines": {
+    "node": ">=20"
+  }
+}

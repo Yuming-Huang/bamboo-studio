@@ -1,0 +1,38 @@
+{
+  "schema": "bamboo-local-result/v1",
+  "engine": "synthetic export test only",
+  "engineVersion": "fixture",
+  "createdAt": "2026-09-27",
+  "fingerprint": "synthetic-not-a-calculation",
+  "parameters": {
+    "W": 5600,
+    "H": 4040
+  },
+  "C": {
+    "solved": true,
+    "parameters": {
+      "W": 5600,
+      "H": 4040
+    },
+    "members": [
+      {
+        "id": "fixture-c",
+        "stressMPa": 1
+      }
+    ]
+  },
+  "B": {
+    "solved": true,
+    "parameters": {
+      "W": 5600,
+      "H": 4200
+    },
+    "members": [
+      {
+        "id": "fixture-b",
+        "stressMPa": 2
+      }
+    ]
+  },
+  "scope": "Synthetic data for serialization tests only; no structural meaning."
+}

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0-windows7.0": {
+      "Microsoft.Web.WebView2": {
+        "type": "Direct",
+        "requested": "[1.0.3537.50, )",
+        "resolved": "1.0.3537.50",
+        "contentHash": "6RQRMIcc/xnhDCdBmyc+YoPxPlYHjmg/mfVpQb4iYWr+K/cs28dTxCyOYFZjUFtiwupXN9nCqxOSMumn2ZKAIg=="
+      },
+      "Rhino3dm": {
+        "type": "Direct",
+        "requested": "[8.17.0, )",
+        "resolved": "8.17.0",
+        "contentHash": "3uoZ7sNs9NIJ8Vi1b3nO0XCU9KfwH9fef6a6cZPC05aIVtsWTYLzWAIopF07Xksvi9KDj0LAE0JTHqNwQQhLxw=="
+      }
+    },
+    "net8.0-windows7.0/win-x64": {
+      "Microsoft.Web.WebView2": {
+        "type": "Direct",
+        "requested": "[1.0.3537.50, )",
+        "resolved": "1.0.3537.50",
+        "contentHash": "6RQRMIcc/xnhDCdBmyc+YoPxPlYHjmg/mfVpQb4iYWr+K/cs28dTxCyOYFZjUFtiwupXN9nCqxOSMumn2ZKAIg=="
+      },
+      "Rhino3dm": {
+        "type": "Direct",
+        "requested": "[8.17.0, )",
+        "resolved": "8.17.0",
+        "contentHash": "3uoZ7sNs9NIJ8Vi1b3nO0XCU9KfwH9fef6a6cZPC05aIVtsWTYLzWAIopF07Xksvi9KDj0LAE0JTHqNwQQhLxw=="
+      }
+    }
+  }
+}

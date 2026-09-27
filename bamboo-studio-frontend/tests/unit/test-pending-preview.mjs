@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {PendingPreview} from '../../ui/pending-preview.mjs';
+import {parameterKey} from '../../ui/client.mjs';
+const core=createRequire(import.meta.url)('../../ui/core.js');
+const input={...core.defaults,SiteW:8400,W:6000,H:4200,Run:true,Optimize:true,CrossCompare:true};
+const selected={type:5,parameters:{...input,type:5,H:3960,ArchD:300,PMode:1,PurlinCount:9},solved:true,pass:true,stressMPa:12,members:[{stressMPa:12}]};
+let checks=0;function need(value){assert.ok(value);checks++;}
+const preview=new PendingPreview();preview.remember(selected,input);
+const changed={...input,PointWebD:230};preview.noteChange('PointWebD',input,changed);
+let p=preview.parameters(changed);
+need(p.type===5&&p.PointWebD===230);need(p.H===3960&&p.ArchD===300&&p.PMode===1&&p.PurlinCount===9);
+need(input.PointWebD===60&&selected.parameters.PointWebD===60);
+let g=preview.build(changed,core);need(g.pendingAnalysis&&!g.dashed&&g.c.type===5);
+need(g.members.filter(m=>m.part==='wing').length===g.frames.length*4);
+need(g.members.filter(m=>m.role==='web').every(m=>m.diameterMm===230));
+need(!('pass' in g)&&!('stressMax' in g)&&g.members.every(m=>m.stress===undefined));
+const toggled={...changed,Buckle:true};preview.noteChange('Buckle',changed,toggled);
+need(preview.parameters(toggled).type===5&&preview.parameters(toggled).Buckle===true);
+need(parameterKey(input)!==parameterKey(toggled));
+const restored=new PendingPreview(preview.snapshot());need(JSON.stringify(restored.parameters(toggled))===JSON.stringify(preview.parameters(toggled)));
+need(!JSON.stringify(preview.snapshot()).includes('stressMPa'));
+const diameter={...toggled,ArchD:150};preview.noteChange('ArchD',toggled,diameter);need(preview.parameters(diameter).ArchD===150);
+const originalDiameter={...diameter,ArchD:100};preview.noteChange('ArchD',diameter,originalDiameter);need(preview.parameters(originalDiameter).ArchD===100);
+const height={...originalDiameter,H:4300};preview.noteChange('H',originalDiameter,height);need(preview.parameters(height).H===4300);
+const rails={...height,P:700};preview.noteChange('P',height,rails);need(preview.parameters(rails).PMode===0&&preview.parameters(rails).P===700);
+const invalid={...rails,PointLowerT:80};preview.noteChange('PointLowerT',rails,invalid);
+assert.throws(()=>preview.build(invalid,core));checks++;
+need(preview.record.type===5);
+const next={type:5,parameters:{...changed,type:5,H:4200,ArchD:150}};preview.remember(next,changed);need(preview.parameters(changed).ArchD===150&&preview.parameters(changed).H===4200);
+preview.restore(null);need(preview.parameters(changed)===null);
+for(const type of [0,1,2,4,5]){preview.remember({...selected,type,parameters:{...selected.parameters,type}},input);preview.noteChange('E',input,{...input,E:10000});need(preview.parameters({...input,E:10000}).type===type);}
+console.log(JSON.stringify({pass:true,checks}));
