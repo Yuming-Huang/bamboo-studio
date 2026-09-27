@@ -1,0 +1,13 @@
+<Project>
+  <ItemGroup Condition="'$(TargetFramework)'=='net8.0-windows'">
+    <Reference Include="RhinoCommon"><HintPath>$(RhinoRoot)\System\netcore\RhinoCommon.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Grasshopper"><HintPath>$(GrasshopperRoot)\Grasshopper.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="GH_IO"><HintPath>$(GrasshopperRoot)\GH_IO.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="karambaCommon"><HintPath>$(KarambaRoot)\karambaCommon.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckRhinoSdk" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetFramework)'=='net8.0-windows'">
+    <Error Condition="!Exists('$(RhinoRoot)\System\netcore\RhinoCommon.dll')" Text="RhinoCommon missing. Pass -RhinoRoot to Build.ps1 or configure Directory.Build.local.props." />
+    <Error Condition="!Exists('$(GrasshopperRoot)\Grasshopper.dll')" Text="Grasshopper SDK missing. Check GrasshopperRoot." />
+    <Error Condition="!Exists('$(KarambaRoot)\karambaCommon.dll')" Text="Karamba3D SDK missing. Check KarambaRoot. This repository does not include commercial SDK DLLs." />
+  </Target>
+</Project>

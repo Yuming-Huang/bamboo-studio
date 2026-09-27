@@ -1,0 +1,15 @@
+{
+  "version": "0.8.0",
+  "prepared": "2026-09-27",
+  "origin": "Production Karamba bridge 0.8.0 and original multi-parameter GH 0.8.0",
+  "sourceSha256": {
+    "src/BambooKarambaBridge/Input.cs": "918d39e8f5daa5267b20176bf3fba0a2e2c9414cfa1737c224353bf9b2ff3581",
+    "src/BambooKarambaBridge/Jobs.cs": "0724df3a7b8b1f70f28fe6f00bf94612875d6ffa4ab08c7f832f523ce054e728",
+    "src/BambooKarambaBridge/Kernel.cs": "e77a1e32fe0e75f3437cfa3f1dd3c74c805bc482c9661bd8e3b83ca66b02a1ff",
+    "src/BambooKarambaBridge/LoopbackServer.cs": "428bc8f19a3c9f9f68cfc7509f17d947480d259c75ccbe50d67e268e5a3a027c",
+    "src/BambooKarambaBridge/Plugin.cs": "2adeb1e5b060f98f00c40832090b0510bbce9d18acb88560d9366bfb664215f7",
+    "src/BambooKarambaBridge/Solver.cs": "6dd8c3c310d03afbe7f0084dc2436ebfb5aa8078167f9cd95cb6a756f58bd78b",
+    "grasshopper/BambooStudio-0.8.0.gh": "5461bb23ad72fddfd16a94ffdc7cc3c5ef9440f363d565e98a4040720c08fae6"
+  },
+  "newStructuralSolveDuringSplit": false
+}

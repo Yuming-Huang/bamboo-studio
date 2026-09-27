@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <RhinoRoot Condition="'$(RhinoRoot)'==''">$(ProgramW6432)\Rhino 8</RhinoRoot>
+    <GrasshopperRoot Condition="'$(GrasshopperRoot)'==''">$(RhinoRoot)\Plug-ins\Grasshopper</GrasshopperRoot>
+    <KarambaRoot Condition="'$(KarambaRoot)'==''">$(RhinoRoot)\Plug-ins\Karamba</KarambaRoot>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <Import Project="Directory.Build.local.props" Condition="Exists('Directory.Build.local.props')" />
+</Project>

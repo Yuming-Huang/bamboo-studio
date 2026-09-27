@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><EnableDefaultCompileItems>false</EnableDefaultCompileItems><DefineConstants>COMPILE_CHECK</DefineConstants></PropertyGroup>
+ <ItemGroup><Compile Include="06_Roof.compile.cs"/></ItemGroup>
+</Project>

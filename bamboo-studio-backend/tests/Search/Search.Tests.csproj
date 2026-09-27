@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
+ <ItemGroup>
+  <Compile Include="Program.cs"/><Compile Include="TestSolver.cs"/>
+  <Compile Include="../../grasshopper/search-source/core/MathCore.cs"/>
+  <Compile Include="../../grasshopper/search-source/core/TopologyCore.cs"/>
+  <Compile Include="../../grasshopper/search-source/core/ComparisonCore.cs"/>
+  <Compile Include="../../grasshopper/search-source/core/CandidateSpace.cs"/>
+  <Compile Include="../../grasshopper/search-source/ComparisonEngine.cs"/>
+ </ItemGroup>
+</Project>

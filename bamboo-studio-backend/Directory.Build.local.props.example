@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <RhinoRoot>C:\Program Files\Rhino 8</RhinoRoot>
+    <GrasshopperRoot>$(RhinoRoot)\Plug-ins\Grasshopper</GrasshopperRoot>
+    <KarambaRoot>$(RhinoRoot)\Plug-ins\Karamba</KarambaRoot>
+  </PropertyGroup>
+</Project>
